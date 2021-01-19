@@ -6,4 +6,7 @@
 //  Copyright © 2020 Artem Novichkov. All rights reserved.
 //
 
-import Foundation
+struct Post {
+    
+    let title: String
+}
