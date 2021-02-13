@@ -20,25 +20,30 @@ class ProfileHeaderView: UIView {
     }
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var statusTextField: UITextField!
-    @IBOutlet weak var setStatusButton: UIButton!
+    @IBOutlet weak var statusTextField: UITextField! {
+        didSet {
+            statusTextField.layer.borderWidth = 1
+            statusTextField.roundCornersWithRadius(12)
+            statusTextField.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var setStatusButton: UIButton! {
+        didSet {
+            setStatusButton.roundCornersWithRadius(15)
+        }
+    }
     
     @IBAction func statusIsChanged(_ sender: Any) {
         statusText = statusTextField.text!
     }
     
     @IBAction func statusButtonIsTapped(_ sender: Any) {
+        statusText = statusTextField.text!
+        print(statusText)
+        
         statusLabel.text = statusText
         statusTextField.text = ""
     }
-    
-    
-    
-    //let avatarImageView = UIImageView()
-    //let fullNameLabel = UILabel()
-    //let statusLabel = UILabel()
-    //let setStatusButton = UIButton(type: .system)
-    //let statusTextField = UITextField()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
