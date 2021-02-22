@@ -47,12 +47,13 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //backgroundColor = .lightGray
+        
+        //backgroundColor = .green
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //backgroundColor = .lightGray
+        //backgroundColor = .green
     }
     
     override func layoutSubviews() {

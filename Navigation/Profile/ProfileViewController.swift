@@ -10,47 +10,93 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    let profileHeaderView = ProfileHeaderView()
-    
-    lazy private var newButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitleColor(.red, for: .normal)
-        button.backgroundColor = .white
-        button.setTitle("Hei! It's me! New button!", for: .normal)
-        return button
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: String(describing: ProfileTableViewCell.self))
+//        tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
+        
+        return tableView
     }()
     
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(newButton)
-        
-        newButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            newButton.rightAnchor.constraint(equalTo: view.rightAnchor),
-            newButton.leftAnchor.constraint(equalTo: view.leftAnchor),
-            newButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            newButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        setupViews()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func setupViews() {
+        view.addSubview(tableView)
+        
+        let constraints = [
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
-    */
+
+}
+
+extension ProfileViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 500
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 700
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .zero
+    }
+    
+}
+
+extension ProfileViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //print(Storage.tableModel.count)
+        return Storage.tableModel.count
+        //return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return Storage.tableModel.count
+        return 1
+    
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: ProfileTableViewCell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: ProfileTableViewCell.self),
+                for: indexPath) as! ProfileTableViewCell
+            
+        cell.post = Storage.tableModel[indexPath.section]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let header = ProfileHeaderView()
+            
+            
+            
+            return header
+        } else {
+            return nil
+        }
+        
+    }
+
 
 }
