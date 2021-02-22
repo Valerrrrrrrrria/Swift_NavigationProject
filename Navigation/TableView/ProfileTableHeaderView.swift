@@ -10,135 +10,117 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     private var statusText : String = "Waiting for something..."
-    @IBOutlet weak var avatarImageView: UIImageView! {
-        didSet {
-            avatarImageView.roundCornersWithRadius(75)
-            avatarImageView.layer.borderColor = UIColor.white.cgColor
-            avatarImageView.layer.borderWidth = 3
-            avatarImageView.clipsToBounds = true
-        }
-    }
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var statusTextField: UITextField! {
-        didSet {
-            statusTextField.layer.borderWidth = 1
-            statusTextField.roundCornersWithRadius(12)
-            statusTextField.clipsToBounds = true
-        }
-    }
-    @IBOutlet weak var setStatusButton: UIButton! {
-        didSet {
-            setStatusButton.roundCornersWithRadius(15)
-        }
-    }
     
-    @IBAction func statusIsChanged(_ sender: Any) {
-        statusText = statusTextField.text!
-    }
-    
-    @IBAction func statusButtonIsTapped(_ sender: Any) {
-        statusText = statusTextField.text!
-        print(statusText)
+    private lazy var avatarImageView: UIImageView = {
+        let iv = UIImageView()
         
-        statusLabel.text = statusText
-        statusTextField.text = ""
-    }
+        iv.image = UIImage(named: "cat")
+                   iv.roundCornersWithRadius(75)
+                   iv.layer.borderColor = UIColor.white.cgColor
+                   iv.layer.borderWidth = 3
+                   iv.clipsToBounds = true
+                   iv.frame = CGRect(
+                       x: 16,
+                       y: 16,
+                       width: 150,
+                       height: 150
+                   )
+        return iv
+    }()
+    
+    private lazy var fullName: UITextView = {
+        let fullNameLabel = UITextView()
+        
+        fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        fullNameLabel.textColor = .black
+        fullNameLabel.text = "Hipster Cat"
+        fullNameLabel.frame = CGRect(
+            x: avatarImageView.frame.maxX + 16,
+            y: avatarImageView.frame.minY,
+            width: 200,
+            height: 44
+        )
+        fullNameLabel.backgroundColor = .systemGray6
+        
+        return fullNameLabel
+    }()
+    
+    private lazy var statusLabel: UITextView = {
+        let statusLabel = UITextView()
+        statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+                       statusLabel.textColor = .gray
+                       statusLabel.text = statusText
+                       statusLabel.frame = CGRect(
+                           x: avatarImageView.frame.maxX + 16,
+                           y: statusButton.frame.minY - 44 - 34,
+                           width: 200,
+                           height: 44
+                       )
+        statusLabel.backgroundColor = .systemGray6
+        return statusLabel
+    }()
+    
+    private lazy var statusButton: UIButton = {
+        let setStatusButton = UIButton()
+                setStatusButton.backgroundColor = .blue
+                setStatusButton.setTitle("Show status", for: .normal)
+                setStatusButton.setTitleColor(.white, for: .normal)
+                setStatusButton.frame = CGRect(
+                    x: 16,
+                    y: avatarImageView.frame.maxY + 16,
+                    width: frame.maxX - 32,
+                    height: 50
+                )
+                setStatusButton.roundCornersWithRadius(15)
+                setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        return setStatusButton
+    }()
+    
+    private lazy var statusTextField: UITextField = {
+        
+        let statusTextField = UITextField()
+                statusTextField.backgroundColor = .white
+                statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+                statusTextField.textColor = .black
+                statusTextField.layer.borderWidth = 1
+                statusTextField.layer.borderColor = UIColor.black.cgColor
+                statusTextField.roundCornersWithRadius(12)
+        
+        statusTextField.frame = CGRect(
+            x: statusLabel.frame.minX,
+            y: statusButton.frame.minY - 44,
+            width: statusButton.frame.maxX - statusLabel.frame.minX,
+            height: 30
+        )
+                
+                statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return statusTextField
+        
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //backgroundColor = .green
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //backgroundColor = .green
     }
     
     override func layoutSubviews() {
-        
-    }
-    
-    
-    func addAvatarImageView() {
-           avatarImageView.image = UIImage(named: "cat")
-            avatarImageView.roundCornersWithRadius(75)
-            avatarImageView.layer.borderColor = UIColor.white.cgColor
-            avatarImageView.layer.borderWidth = 3
-            avatarImageView.clipsToBounds = true
-            avatarImageView.frame = CGRect(
-                x: 16,
-                y: 16,
-                width: 150,
-                height: 150
-            )
+        self.backgroundColor = .systemGray6
         self.addSubview(avatarImageView)
-    }
-    
-    func addFullName() {
-            fullNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            fullNameLabel.textColor = .black
-            fullNameLabel.text = "Hipster Cat"
-            fullNameLabel.frame = CGRect(
-                x: avatarImageView.frame.maxX + 16,
-                y: avatarImageView.frame.minY,
-                width: 100,
-                height: 44
-            )
-        self.addSubview(fullNameLabel)
-    }
-    
-    func addStatusLabel() {
-               statusLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-               statusLabel.textColor = .gray
-               statusLabel.text = statusText
-               statusLabel.frame = CGRect(
-                   x: avatarImageView.frame.maxX + 16,
-                   y: setStatusButton.frame.minY - 44 - 34,
-                   width: 200,
-                   height: 44
-               )
+        self.addSubview(fullName)
         self.addSubview(statusLabel)
-    }
-    
-    func addButton() {
-        setStatusButton.backgroundColor = .blue
-        setStatusButton.setTitle("Show status", for: .normal)
-        setStatusButton.setTitleColor(.white, for: .normal)
-        setStatusButton.frame = CGRect(
-            x: 16,
-            y: avatarImageView.frame.maxY + 16,
-            width: frame.maxX - 32,
-            height: 50
-        )
-        setStatusButton.roundCornersWithRadius(15)
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        self.addSubview(setStatusButton)
+        self.addSubview(statusButton)
+        self.addSubview(statusTextField)
     }
     
     @objc func buttonPressed() {
         statusLabel.text = statusText
         statusTextField.text = ""
     }
-    
-    func addStatusTextField() {
-        statusTextField.backgroundColor = .white
-        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        statusTextField.textColor = .black
-        statusTextField.layer.borderWidth = 1
-        statusTextField.layer.borderColor = UIColor.black.cgColor
-        statusTextField.roundCornersWithRadius(12)
-        statusTextField.frame = CGRect(
-            x: statusLabel.frame.minX,
-            y: setStatusButton.frame.minY - 44,
-            width: setStatusButton.frame.maxX - statusLabel.frame.minX,
-            height: 30
-        )
-        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-        self.addSubview(statusTextField)
-    }
-    
+
     @objc func statusTextChanged(_ textField: UITextField) {
         statusText = textField.text!
     }

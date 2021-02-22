@@ -56,7 +56,7 @@ class ProfileTableViewCell: UITableViewCell {
         
         private let postImageView: UIImageView = {
             let iv = UIImageView()
-            iv.contentMode = .scaleAspectFit
+            iv.contentMode = .scaleAspectFit            
             iv.backgroundColor = .black
             iv.translatesAutoresizingMaskIntoConstraints = false
             return iv
@@ -88,6 +88,7 @@ class ProfileTableViewCell: UITableViewCell {
                 postImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
                 postImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
                 postImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor),
+                postImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
 
                 descriptionLabel.topAnchor.constraint(equalTo: postImageView.bottomAnchor, constant: 16),
                 descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),

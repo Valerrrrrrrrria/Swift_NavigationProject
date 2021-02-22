@@ -48,7 +48,12 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 500
+        if section == 0 {
+            return 250
+        } else {
+            return .zero
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,9 +93,6 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let header = ProfileHeaderView()
-            
-            
-            
             return header
         } else {
             return nil
