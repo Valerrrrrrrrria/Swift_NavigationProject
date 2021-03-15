@@ -19,6 +19,7 @@
 		38291E2725949738008F4D0B /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38291E2625949738008F4D0B /* ProfileTableHeaderView.swift */; };
 		38291E292594976B008F4D0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38291E282594976B008F4D0B /* ProfileViewController.swift */; };
 		3862564225D85EB600200888 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3862564125D85EB600200888 /* LogInViewController.swift */; };
+		388F5FDD25FFFB8700DB426D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5FDC25FFFB8700DB426D /* News.swift */; };
 		38E03B5825D96B0B002DB64D /* PostNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E03B5725D96B0B002DB64D /* PostNew.swift */; };
 		38E03B5A25D97126002DB64D /* PostOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E03B5925D97126002DB64D /* PostOld.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		38291E2625949738008F4D0B /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		38291E282594976B008F4D0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3862564125D85EB600200888 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		388F5FDC25FFFB8700DB426D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		38E03B5725D96B0B002DB64D /* PostNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNew.swift; sourceTree = "<group>"; };
 		38E03B5925D97126002DB64D /* PostOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOld.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				38291E282594976B008F4D0B /* ProfileViewController.swift */,
 				3862564125D85EB600200888 /* LogInViewController.swift */,
 				38E03B5725D96B0B002DB64D /* PostNew.swift */,
+				388F5FDC25FFFB8700DB426D /* News.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				380FFBFA25E3BB73007DD6FB /* ProfileTableViewCell.swift in Sources */,
 				3862564225D85EB600200888 /* LogInViewController.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
+				388F5FDD25FFFB8700DB426D /* News.swift in Sources */,
 				38291E2725949738008F4D0B /* ProfileTableHeaderView.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				38291E292594976B008F4D0B /* ProfileViewController.swift in Sources */,

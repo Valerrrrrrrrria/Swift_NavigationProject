@@ -8,14 +8,6 @@
 
 import UIKit
 
-struct News {
-    let image: UIImage
-    let autor: String
-    let likes: String
-    let views: String
-    var description: String? = nil
-}
-
 struct PostSection {
     let autor: String
     let description: String
@@ -35,8 +27,8 @@ struct Storage {
         ),
         PostSection(
             autor: "Академия Эндорфин",
-            description: "Куриная арифметика",
-            image: UIImage(named: "zs")!,
+            description: "А что у вас в холодильнике?",
+            image: UIImage(named: "fruits")!,
             likes: "1",
             views: "74"
         ),

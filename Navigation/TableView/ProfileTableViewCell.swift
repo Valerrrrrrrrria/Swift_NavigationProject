@@ -96,9 +96,11 @@ class ProfileTableViewCell: UITableViewCell {
 
                 likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
                 likesLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+                likesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
 
                 viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
-                viewsLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor)
+                viewsLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+                viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
                 
                 
             ]
