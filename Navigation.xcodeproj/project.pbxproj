@@ -22,6 +22,7 @@
 		388F5FDD25FFFB8700DB426D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5FDC25FFFB8700DB426D /* News.swift */; };
 		38E03B5825D96B0B002DB64D /* PostNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E03B5725D96B0B002DB64D /* PostNew.swift */; };
 		38E03B5A25D97126002DB64D /* PostOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E03B5925D97126002DB64D /* PostOld.swift */; };
+		38FE37432600967C0076B9AF /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FE37422600967C0076B9AF /* PhotosTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		388F5FDC25FFFB8700DB426D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		38E03B5725D96B0B002DB64D /* PostNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNew.swift; sourceTree = "<group>"; };
 		38E03B5925D97126002DB64D /* PostOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOld.swift; sourceTree = "<group>"; };
+		38FE37422600967C0076B9AF /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				380FFBF925E3BB73007DD6FB /* ProfileTableViewCell.swift */,
 				38291E2625949738008F4D0B /* ProfileTableHeaderView.swift */,
+				38FE37422600967C0076B9AF /* PhotosTableViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				388F5FDD25FFFB8700DB426D /* News.swift in Sources */,
 				38291E2725949738008F4D0B /* ProfileTableHeaderView.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
+				38FE37432600967C0076B9AF /* PhotosTableViewCell.swift in Sources */,
 				38291E292594976B008F4D0B /* ProfileViewController.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
 				38E03B5825D96B0B002DB64D /* PostNew.swift in Sources */,

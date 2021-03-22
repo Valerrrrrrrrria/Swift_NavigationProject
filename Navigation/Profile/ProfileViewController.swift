@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: String(describing: ProfileTableViewCell.self))
+        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: String(describing: PhotosTableViewCell.self))
 //        tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
         
         return tableView
@@ -47,6 +48,12 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            //UINavigationController.pushViewController(<#T##self: UINavigationController##UINavigationController#>)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 0 {
@@ -65,23 +72,31 @@ extension ProfileViewController: UITableViewDelegate {
 
 extension ProfileViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Storage.tableModel.count
+        return Storage.tableModel.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
-    
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: ProfileTableViewCell = tableView.dequeueReusableCell(
-                withIdentifier: String(describing: ProfileTableViewCell.self),
-                for: indexPath) as! ProfileTableViewCell
+        if (indexPath.section == 0) {
+            let cell: PhotosTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotosTableViewCell.self), for: indexPath) as! PhotosTableViewCell
             
-        cell.post = Storage.tableModel[indexPath.section]
+            return cell
+            
+        } else {
+            let cell: ProfileTableViewCell = tableView.dequeueReusableCell(
+                    withIdentifier: String(describing: ProfileTableViewCell.self),
+                    for: indexPath) as! ProfileTableViewCell
+                
+            cell.post = Storage.tableModel[indexPath.section - 1]
+            
+            return cell
+        }
         
-        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
