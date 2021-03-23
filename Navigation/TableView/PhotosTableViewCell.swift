@@ -24,7 +24,7 @@ class PhotosTableViewCell: UITableViewCell {
         stack.axis = .horizontal
         stack.distribution = .fillProportionally
         stack.alignment = .fill
-        stack.spacing = 5
+        
         stack.backgroundColor = .cyan
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -53,6 +53,16 @@ class PhotosTableViewCell: UITableViewCell {
         ivThree.contentMode = .scaleAspectFill
         ivFour.contentMode = .scaleAspectFill
         
+//        ivOne.translatesAutoresizingMaskIntoConstraints = false
+//        ivTwo.translatesAutoresizingMaskIntoConstraints = false
+//        ivThree.translatesAutoresizingMaskIntoConstraints = false
+//        ivFour.translatesAutoresizingMaskIntoConstraints = false
+//
+//        ivOne.bottomAnchor.constraint(equalTo: imagesStack.bottomAnchor, constant: 0).isActive = true
+//        ivTwo.bottomAnchor.constraint(equalTo: imagesStack.bottomAnchor, constant: 0).isActive = true
+//        ivThree.bottomAnchor.constraint(equalTo: imagesStack.bottomAnchor, constant: 0).isActive = true
+//        ivFour.bottomAnchor.constraint(equalTo: imagesStack.bottomAnchor, constant: 0).isActive = true
+        
         imagesStack.addArrangedSubview(ivOne)
         imagesStack.addArrangedSubview(ivTwo)
         imagesStack.addArrangedSubview(ivThree)
@@ -73,6 +83,7 @@ class PhotosTableViewCell: UITableViewCell {
             
             imagesStack.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 12),
             imagesStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 12),
+            imagesStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imagesStack.heightAnchor.constraint(equalToConstant: 100),
             imagesStack.widthAnchor.constraint(equalToConstant: contentView.frame.width),
             imagesStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),

@@ -54,6 +54,14 @@ extension ProfileViewController: UITableViewDelegate {
         }
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return 200
+//        } else {
+//            return .
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 0 {
